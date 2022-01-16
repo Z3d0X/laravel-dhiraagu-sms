@@ -1,0 +1,29 @@
+{
+    "name": "zedox/laravel-dhiraagu-sms",
+    "description": "Dhiraagu Bulk SMS Service API Wrapper for laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Zedox\\LaravelDhiraaguSms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ziyaan Hassan",
+            "email": "ziyaan2010@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.0",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zedox\\LaravelDhiraaguSms\\SmsProvider"
+            ]
+        }
+    }
+}
