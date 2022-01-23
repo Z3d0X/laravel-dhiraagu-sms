@@ -6,7 +6,6 @@ You can install the package via composer:
 composer require zedox/laravel-dhiraagu-sms
 ```
 <br />
-<br />
 
 ## Configuration
 
@@ -19,9 +18,15 @@ Add the following in your `config/services.php`
     'password' => env('DHIRAAGU_SMS_PASSWORD'),
 ],
 ```
+then you can use the `.env` file to pass these credentials
+
+```dotenv
+DHIRAAGU_SMS_USERID=XXXXX
+DHIRAAGU_SMS_PASSWORD=XXXXX
+```
+
 While url is optional, you must provide userid and password
 
-<br />
 <br />
 
 ## Usage
@@ -34,4 +39,20 @@ use Zedox\LaravelDhiraaguSms\Facades\DhiraaguSms;
 You can use the send method which accepts a mobile no and a message
 ```php
     DhiraaguSms::send($toMobile, $message)
+```
+
+<br />
+
+## Example
+
+
+```php
+Route::get('test-sms', function () {
+    try {
+        DhiraaguSms::send('9607XXXXXX', 'Hello World');
+    } catch (\Exception $e) {
+        return response()->json(['message' => $e->getMessage()]);
+    }
+    return resoponse()->json(['message' => 'Success: SMS sent']);
+});
 ```
