@@ -53,6 +53,6 @@ Route::get('test-sms', function () {
     } catch (\Exception $e) {
         return response()->json(['message' => $e->getMessage()]);
     }
-    return resoponse()->json(['message' => 'Success: SMS sent']);
+    return response()->json(['message' => 'Success: SMS sent']);
 });
 ```
